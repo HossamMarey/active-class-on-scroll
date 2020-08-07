@@ -1,0 +1,116 @@
+:root {
+  --color-1: goldenrod;
+  --color-2: royalblue;
+  --color-3: purple;
+  --color-4: seagreen;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: #eee;
+}
+
+nav {
+  height: 100vh;
+  width: 20vw;
+  background-color: #202020;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+nav a {
+  width: 100%;
+  color: #c4c4c4;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 10px;
+  transition: all 0.3s;
+}
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+nav a.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+nav a:nth-child(1).active {
+  color: var(--color-1);
+}
+nav a:nth-child(2).active {
+  color: var(--color-2);
+}
+nav a:nth-child(3).active {
+  color: var(--color-3);
+}
+nav a:nth-child(4).active {
+  color: var(--color-4);
+}
+
+nav a.active::after {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: goldenrod;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 6px;
+}
+
+nav a:nth-child(1).active::after {
+  background-color: var(--color-1);
+}
+nav a:nth-child(2).active::after {
+  background-color: var(--color-2);
+}
+nav a:nth-child(3).active::after {
+  background-color: var(--color-3);
+}
+nav a:nth-child(4).active::after {
+  background-color: var(--color-4);
+}
+
+main {
+  width: 80vw;
+  margin-left: auto;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section:nth-child(1) {
+  background: var(--color-1);
+}
+section:nth-child(2) {
+  background: var(--color-2);
+}
+section:nth-child(3) {
+  background: var(--color-3);
+}
+section:nth-child(4) {
+  background: var(--color-4);
+}
+
+section h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
