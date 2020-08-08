@@ -5,8 +5,9 @@ onscroll = function () {
 
   sections.forEach((section) => {
     if (
-      scrollPosition >= section.offsetTop - section.offsetHeight *0.25  &&
-      scrollPosition < section.offsetTop + section.offsetHeight -section.offsetHeight *0.25
+      scrollPosition >= section.offsetTop - section.offsetHeight * 0.25 &&
+      scrollPosition <
+        section.offsetTop + section.offsetHeight - section.offsetHeight * 0.25
     ) {
       var currentId = section.attributes.id.value;
       removeAllActiveClasses();
@@ -22,7 +23,26 @@ var removeAllActiveClasses = function () {
 };
 
 var addActiveClass = function (id) {
-  console.log(id);
+  // console.log(id);
   var selector = `nav a[href="#${id}"]`;
   document.querySelector(selector).classList.add("active");
 };
+
+var navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    var currentId = e.target.attributes.href.value;
+    var section = document.querySelector(currentId);
+    var sectionPos = section.offsetTop;
+    // section.scrollIntoView({
+    //   behavior: "smooth",
+    // });
+
+    window.scroll({
+      top: sectionPos,
+      behavior: "smooth",
+    });
+  });
+});
